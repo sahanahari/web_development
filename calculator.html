@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Math Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <style>
+    .calculator {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  border: 1px solid #e6046d;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+
+input[type="text"] {
+  width: 90%;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 5px;
+  border: 1px solid #e6046d;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #8052ec, #d161ff);
+}
+button {
+  padding: 10px;
+  font-size: 24px;
+  border-radius: 5px;
+  border:#e6046d;
+  background-color: #f5add9;
+  cursor:grabbing;
+}
+
+button:hover {
+  background-color: #85e3fa;
+}
+  </style>
+  <body>
+    <div class="calculator">
+      <input type="text" id="result" readonly>
+      <div class="buttons">
+        <button onclick="dis('1')">1</button>
+        <button onclick="dis('2')">2</button>
+        <button onclick="dis('3')">3</button>
+        <button onclick="dis('+')">+</button>
+        <button onclick="dis('4')">4</button>
+        <button onclick="dis('5')">5</button>
+        <button onclick="dis('6')">6</button>
+        <button onclick="dis('-')">-</button>
+        <button onclick="dis('7')">7</button>
+        <button onclick="dis('8')">8</button>
+        <button onclick="dis('9')">9</button>
+        <button onclick="dis('*')">*</button>
+        <button onclick="dis('.')">.</button>
+        <button onclick="dis('0')">0</button>
+        <button onclick="dis('/')">/</button>
+       
+        <button onclick="calculate()">=</button>
+        <button onclick="clr()">C</button>
+        
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+  <script>
+    function dis(val) {
+  document.getElementById("result").value += val;
+}
+
+function clr() {
+  document.getElementById("result").value = "";
+}
+
+function calculate() {
+  let x = document.getElementById("result").value;
+  let y = eval(x);
+  document.getElementById("result").value = y;
+}
+  </script>
+</html>
